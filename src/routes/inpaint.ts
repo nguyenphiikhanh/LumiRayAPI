@@ -1,6 +1,6 @@
 import { Elysia } from "elysia";
 import { createTask, getTask } from "../store/taskStore";
-import { createInpaintTask, pollResult } from "../services/novita";
+import { createInpaintTask } from "../services/novita";
 
 export const inpaintRoutes = new Elysia()
   // tạo task
@@ -16,9 +16,6 @@ export const inpaintRoutes = new Elysia()
     createTask(localTaskId);
 
     const novitaTaskId = await createInpaintTask(image, mask, prompt);
-
-    // chạy async background
-    pollResult(novitaTaskId, localTaskId);
 
     return {
       taskId: localTaskId

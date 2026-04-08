@@ -36,6 +36,7 @@ export async function updateTask(id: string, update: any) {
   };
 
   await redis.set(key, JSON.stringify(newData), "EX", 3600);
+  // trừ credit sau khi update success
 }
 
 export async function getTask(id: string) {
