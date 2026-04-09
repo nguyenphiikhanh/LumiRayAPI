@@ -1,3 +1,11 @@
+type LoRA = {
+    model_name: string,
+    strength: number
+}
+
+type Embedding = {
+    model_name: string
+}
 export interface IInpaintingRequest {
     model_name: string,
     image_base64: string,
@@ -21,11 +29,7 @@ export interface IInpaintingRequest {
     initial_noise_multiplier?: number
 }
 
-type LoRA = {
+export interface IImageToImageRequest{
     model_name: string,
-    strength: number
-}
-
-type Embedding = {
-    model_name: string
+    image_base64: string,
 }
